@@ -14,12 +14,13 @@ const Listings = () => {
 
   useEffect(() => {
     getListingsItems()
-  }, [])
+  })
 
   const getListingsItems = async () => {
     try {
       const itemsList = await marketplace?.getActiveListings()
       setMarketplaceItems(itemsList)
+      console.log()
     } catch (e) {
       console.error(e)
     }
@@ -32,7 +33,7 @@ const Listings = () => {
           <>
             {marketplaceItems?.map((item: any, index: number) => (
               <Link key={index} href={`/assets/${item.assetContractAddress}/${item.id}`}>
-                <NFTCard />
+                <NFTCard item={item} />
               </Link>
             ))}
           </>

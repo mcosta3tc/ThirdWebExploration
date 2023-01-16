@@ -2,6 +2,7 @@ import '@/../styles/global.scss'
 import type { AppProps } from 'next/app'
 import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react'
 import * as process from 'process'
+import { ThemeProvider } from 'next-themes'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -11,7 +12,9 @@ export default function App({ Component, pageProps }: AppProps) {
         [ChainId.Goerli]: process.env.NEXT_PUBLIC_INFURA_LINK,
       }}
     >
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </ThirdwebProvider>
   )
 }
