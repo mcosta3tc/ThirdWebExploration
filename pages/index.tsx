@@ -21,6 +21,5 @@ export default function Home() {
       </div>
     )
   }
-  console.log(address)
   return <>{address ? <Main /> : Auth()}</>
 }
