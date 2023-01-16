@@ -1,13 +1,17 @@
-import { useActiveListings, useContract } from '@thirdweb-dev/react'
+import { useMarketplace } from '@thirdweb-dev/react'
+import * as process from 'process'
+import { useEffect } from 'react'
 
 const Listings = () => {
-  const { contract } = useContract(process.env.NEXT_PUBLIC_MARKETPLACE_ADRESS, 'marketplace')
+  const marketplace = useMarketplace(process.env.NEXT_PUBLIC_MARKETPLACE_ADRESS)
 
-  const getListings = () => {
+  useEffect(() => {
+    getListingsItems()
+  }, [])
+  const getListingsItems = async () => {
     try {
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      const { data: nfts, isLoading } = useActiveListings(contract)
-      console.log(nfts)
+      const itemsList = await marketplace?.getActiveListings()
+      console.log(itemsList)
     } catch (e) {
       console.error(e)
     }
