@@ -4,6 +4,7 @@ import NFTImage from '@/components/NFT/NFTImage'
 import { useAddress, useMarketplace } from '@thirdweb-dev/react'
 import { useRouter } from 'next/router'
 import { BigNumber } from 'ethers'
+import NFTSalesInfo from '@/components/NFT/NFTSalesInfo'
 
 const style = {}
 
@@ -36,6 +37,18 @@ const NFT = () => {
     }
   }
 
+  const buyNFT = async () => {
+    try {
+      if (tokenID) {
+        if (typeof tokenID === 'string') {
+          const castTokenId = await marketplace?.buyoutListing(parseInt(tokenID), 1)
+        }
+      }
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
   return (
     <TopNavBarLayout>
       <div className={style.wrapper}>
@@ -50,8 +63,9 @@ const NFT = () => {
               <div className={style.leftElement}>NFT DEATILS</div>
             </div>
             <div className={style.rightContainer}>
-              NFT BASIC INFO
-              <div className={style.buyoutContainer}>NFT SALES INFO</div>
+              <div className={style.buyoutContainer}>
+                <NFTSalesInfo price={item?.buyoutCurrencyValuePerToken?.displayValue} buyNFT={buyNFT} />
+              </div>
             </div>
           </div>
         )}
