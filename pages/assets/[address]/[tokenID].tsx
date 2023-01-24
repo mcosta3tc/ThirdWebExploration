@@ -6,7 +6,14 @@ import { useRouter } from 'next/router'
 import { BigNumber } from 'ethers'
 import NFTSalesInfo from '@/components/NFT/NFTSalesInfo'
 
-const style = {}
+const style = {
+  wrapper: `flex h-[100vh] mx-auto max-w-2xl flex-col space-y-4 py-4 dark:ng-[#202226] lg:max-w-none lg:py-8 lg:px-24`,
+  nftContainer: `flex flex-col lg:flex-row lg:space-x-4`,
+  leftContainer: `flex flex-col space-y-4`,
+  leftElement: `hidden lg:block`,
+  rightContainer: `flex flex-1 flex-col space-y-4`,
+  buyoutContainer: `flex-1`,
+}
 
 const NFT = () => {
   const router = useRouter()
@@ -60,7 +67,7 @@ const NFT = () => {
               <div className={style.leftElement}>
                 <NFTImage image={item?.asset?.image} />
               </div>
-              <div className={style.leftElement}>NFT DEATILS</div>
+              <div className={style.leftElement}>{/*NFT DEATILS*/}</div>
             </div>
             <div className={style.rightContainer}>
               <div className={style.buyoutContainer}>
