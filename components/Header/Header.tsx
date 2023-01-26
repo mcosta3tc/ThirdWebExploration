@@ -63,9 +63,9 @@ const Navbar = () => {
   return (
     <header className={style.wrapper}>
       <div className={style.logoContainer}>
-        <Link href="/">
+        {/*        <Link href="/">
           <Logo />
-        </Link>
+        </Link>*/}
       </div>
 
       <div className={style.searchContainer}>

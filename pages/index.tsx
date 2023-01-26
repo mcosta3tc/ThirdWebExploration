@@ -1,6 +1,7 @@
 import '@/../styles/Home.module.scss'
-import { useAddress, useMetamask } from '@thirdweb-dev/react'
+import { useAddress, useMetamask, useWalletConnect } from '@thirdweb-dev/react'
 import Main from '@/components/Home'
+import { useEffect, useState } from 'react'
 
 const style = {
   wrapper: `flex h-screen items-center justify-center`,
@@ -9,24 +10,17 @@ const style = {
 
 export default function Home() {
   const connectWithMetamask = useMetamask()
+  const connectWithTest = useWalletConnect()
   //logged user wallet address
   const address = useAddress()
-
-  /*
-   * test metamask */
-  /*
-  const provider = window.ethereum
-  if (!provider) {
-    console.log('Metamask is not installed, please install!')
-  } else {
-    console.log('Metamask is installed')
-  }
-*/
 
   const Auth = () => {
     return (
       <div className={style.wrapper}>
         <button onClick={connectWithMetamask} className={style.connectWalletButton}>
+          Connectez votre wallet Metamask
+        </button>
+        <button onClick={connectWithTest} className={style.connectWalletButton}>
           Connectez votre wallet Metamask
         </button>
       </div>
