@@ -12,6 +12,17 @@ export default function Home() {
   //logged user wallet address
   const address = useAddress()
 
+  /*
+   * test metamask */
+  /*
+  const provider = window.ethereum
+  if (!provider) {
+    console.log('Metamask is not installed, please install!')
+  } else {
+    console.log('Metamask is installed')
+  }
+*/
+
   const Auth = () => {
     return (
       <div className={style.wrapper}>
