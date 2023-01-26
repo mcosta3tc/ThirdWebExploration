@@ -21,7 +21,7 @@ export default function Home() {
           Connectez votre wallet Metamask
         </button>
         <button onClick={connectWithTest} className={style.connectWalletButton}>
-          Connectez votre wallet Metamask
+          Se connectez via WalletConnect
         </button>
       </div>
     )

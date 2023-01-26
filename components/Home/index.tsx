@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { useAddress } from '@thirdweb-dev/react'
+import { useAddress, useDisconnect } from '@thirdweb-dev/react'
 import { MdVerified } from 'react-icons/md'
 import CollectionStats from './CollectionStats'
 import { collectionData } from '@/public/collections'
@@ -44,10 +44,14 @@ export default function Home() {
       setCollection(collectionData)
     })()
   }, [slug])
+  const disconnect = useDisconnect()
 
   return (
     <div>
       <TopNavBarLayout>
+        <button className="border m-2 px-4 py-2" onClick={disconnect}>
+          Disconnect
+        </button>
         <div className={style.wrapper}>
           <div className={style.container}>
             <div className={style.bannerContainer}>
